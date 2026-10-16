@@ -98,14 +98,22 @@
           </a>
 
           <!-- Desktop Navigation Menu -->
-          <nav class="hidden md:flex items-center space-x-7 text-sm font-medium">
+          <nav class="hidden md:flex items-center space-x-6 text-sm font-medium">
             <a href="#about" class="text-gray-300 hover:text-brand-400 transition-colors">About</a>
             <a href="#education" class="text-gray-300 hover:text-brand-400 transition-colors">Education</a>
             <a href="#skills" class="text-gray-300 hover:text-brand-400 transition-colors">Skills</a>
             <a href="#projects" class="text-gray-300 hover:text-brand-400 transition-colors">Projects</a>
+            <a href="#achievements" class="text-gray-300 hover:text-brand-400 transition-colors">Achievements</a>
             <a href="#certifications" class="text-gray-300 hover:text-brand-400 transition-colors">Certifications</a>
             <a href="#experience" class="text-gray-300 hover:text-brand-400 transition-colors">Experience</a>
-            <a href="#contact" class="px-5 py-2.5 rounded-lg bg-brand-500/10 border border-brand-500/30 text-brand-400 hover:bg-brand-500 hover:text-dark-900 font-semibold transition-all shadow-sm">
+            
+            <!-- Resume Navigation Tab -->
+            <button onclick="openResumeModal()" class="px-3 py-1.5 rounded-lg bg-brand-500/10 border border-brand-500/30 text-brand-400 hover:bg-brand-500 hover:text-dark-900 transition-all font-semibold flex items-center space-x-1.5">
+              <i class="fa-regular fa-file-pdf"></i>
+              <span>View Resume</span>
+            </button>
+
+            <a href="#contact" class="px-5 py-2.5 rounded-lg bg-gradient-to-r from-brand-500 to-emerald-600 text-dark-900 font-bold hover:shadow-lg hover:shadow-brand-500/25 transition-all shadow-sm">
               Contact Me
             </a>
           </nav>
@@ -123,8 +131,14 @@
         <a href="#education" class="block py-2 text-gray-300 hover:text-brand-400">Education</a>
         <a href="#skills" class="block py-2 text-gray-300 hover:text-brand-400">Skills</a>
         <a href="#projects" class="block py-2 text-gray-300 hover:text-brand-400">Projects</a>
+        <a href="#achievements" class="block py-2 text-gray-300 hover:text-brand-400">Achievements</a>
         <a href="#certifications" class="block py-2 text-gray-300 hover:text-brand-400">Certifications</a>
         <a href="#experience" class="block py-2 text-gray-300 hover:text-brand-400">Experience</a>
+        
+        <button onclick="openResumeModal()" class="block w-full text-left py-2 text-brand-400 hover:text-white font-semibold">
+          <i class="fa-regular fa-file-pdf mr-1.5"></i> View PDF Resume
+        </button>
+
         <a href="#contact" class="block w-full text-center py-2.5 mt-2 rounded-lg bg-brand-500 text-dark-900 font-bold">Contact Me</a>
       </div>
     </header>
@@ -139,7 +153,7 @@
           <div class="lg:col-span-7 space-y-6">
             <div class="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-400 text-xs font-mono">
               <span class="w-2 h-2 rounded-full bg-brand-500 animate-pulse"></span>
-              <span>Available for IT Internships & Web Projects</span>
+              <span>Seeking IT Internship & Web Development Opportunities</span>
             </div>
 
             <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-white leading-tight">
@@ -152,7 +166,7 @@
             </div>
 
             <p class="text-gray-400 text-base sm:text-lg leading-relaxed max-w-2xl">
-              Bachelor of Science in Information Technology student at De La Salle Lipa specializing in System Development, image recognition integration, and full-stack web applications.
+              Fourth-year Bachelor of Science in Information Technology student specializing in System Development at De La Salle Lipa. Hands-on experience in web development, image recognition APIs, and text similarity algorithms.
             </p>
 
             <div class="pt-4 flex flex-wrap gap-4 items-center">
@@ -161,14 +175,14 @@
                 <i class="fa-solid fa-arrow-right"></i>
               </a>
 
-              <a href="#projects" class="px-7 py-3.5 rounded-xl glass-panel text-white font-medium hover:bg-gray-800/80 transition-all border border-gray-700/60 flex items-center space-x-2">
-                <i class="fa-solid fa-code"></i>
-                <span>View Projects</span>
-              </a>
+              <button onclick="openResumeModal()" class="px-7 py-3.5 rounded-xl glass-panel text-white font-medium hover:bg-gray-800/80 transition-all border border-gray-700/60 flex items-center space-x-2">
+                <i class="fa-regular fa-file-pdf text-brand-400"></i>
+                <span>View CV / Resume</span>
+              </button>
             </div>
 
             <!-- Social Links & Contact Badges -->
-            <div class="pt-6 flex items-center space-x-5 text-gray-400 text-xl">
+            <div class="pt-6 flex flex-wrap items-center gap-5 text-gray-400 text-xl">
               <a href="https://github.com/LorenzAllen26" target="_blank" rel="noopener noreferrer" class="hover:text-brand-400 transition-colors" title="GitHub">
                 <i class="fa-brands fa-github"></i>
               </a>
@@ -177,6 +191,9 @@
               </a>
               <a href="mailto:biscocho.lorenz4@gmail.com" class="hover:text-brand-400 transition-colors" title="Email">
                 <i class="fa-solid fa-envelope"></i>
+              </a>
+              <a href="tel:+639060457314" class="hover:text-brand-400 transition-colors" title="Phone">
+                <i class="fa-solid fa-phone"></i>
               </a>
               <span class="text-gray-700">|</span>
               <span class="text-xs font-mono text-gray-400 flex items-center">
@@ -197,9 +214,9 @@
                 <div class="p-4 bg-dark-800/90 rounded-xl mt-3 border border-gray-700/50">
                   <div class="flex items-center justify-between text-xs font-mono text-gray-400 mb-1">
                     <span>STATUS</span>
-                    <span class="text-brand-400 font-semibold">Active Student</span>
+                    <span class="text-brand-400 font-semibold">4th Year Senior Student</span>
                   </div>
-                  <p class="text-sm font-semibold text-white">De La Salle Lipa — BS IT (2023 - 2027)</p>
+                  <p class="text-sm font-semibold text-white">De La Salle Lipa — BS IT (System Development)</p>
                 </div>
               </div>
             </div>
@@ -212,28 +229,28 @@
       <section id="about" class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div class="glass-panel p-8 sm:p-12 rounded-3xl border border-gray-800 relative overflow-hidden">
           <div class="max-w-3xl">
-            <h2 class="text-xs font-mono font-bold tracking-widest text-brand-500 uppercase mb-2">About Me</h2>
+            <h2 class="text-xs font-mono font-bold tracking-widest text-brand-500 uppercase mb-2">Professional Summary</h2>
             <h3 class="text-3xl font-bold text-white mb-6">Building Solutions with Code, Vision, and Precision</h3>
             
             <p class="text-gray-300 leading-relaxed mb-4">
-              I am a Bachelor of Science in Information Technology student specializing in System Development at De La Salle Lipa. My experience spans full-stack web application development, image recognition APIs, and text similarity algorithms.
+              Fourth-year Bachelor of Science in Information Technology student at De La Salle Lipa with hands-on experience in web development, image recognition, and text similarity matching through academic projects and collaborative website development.
             </p>
             <p class="text-gray-300 leading-relaxed mb-6">
-              Notably, I developed <strong class="text-white">BATRACEKO</strong>, a lost-and-found web application built for BATRASCO Public that integrates the Google Cloud Vision API and Sørensen–Dice coefficient matching to assist users in tracking down missing belongings. Additionally, I contributed to web development initiatives for Unix Guild supporting play-to-earn scholars.
+              Developed <strong class="text-white">BATRACEKO</strong>, a lost-and-found web application for BATRASCO Public that integrates Google Cloud Vision API for image recognition and the Sørensen–Dice coefficient for matching lost and found item descriptions. Also contributed to the design and development of the Unix Guild Play to Earn website, supporting aspiring Axie Infinity scholars.
             </p>
 
             <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-4 border-t border-gray-800">
               <div>
-                <p class="text-2xl font-bold text-brand-400">2023 - 2027</p>
-                <p class="text-xs text-gray-400 font-mono">BS IT @ DLSL</p>
+                <p class="text-2xl font-bold text-brand-400">4th Year</p>
+                <p class="text-xs text-gray-400 font-mono">BS IT @ De La Salle Lipa</p>
               </div>
               <div>
                 <p class="text-2xl font-bold text-brand-400">STEM</p>
-                <p class="text-xs text-gray-400 font-mono">DLSL SHS Graduate</p>
+                <p class="text-xs text-gray-400 font-mono">DLSL Graduate</p>
               </div>
               <div>
                 <p class="text-2xl font-bold text-brand-400">Full-Stack</p>
-                <p class="text-xs text-gray-400 font-mono">Web & System Dev</p>
+                <p class="text-xs text-gray-400 font-mono">System Development</p>
               </div>
             </div>
           </div>
@@ -248,21 +265,19 @@
         </div>
 
         <div class="space-y-6">
-          
-          <!-- 1. College -->
           <div class="glass-panel p-6 sm:p-8 rounded-2xl border border-gray-800 hover:border-brand-500/30 transition-all">
             <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
               <div class="flex items-start space-x-4">
                 <div class="w-16 h-16 rounded-2xl bg-white p-2 flex items-center justify-center shrink-0 border border-gray-700 shadow-md">
-                  <img src="dlsl-logo.png" alt="De La Salle Lipa Logo" class="w-full h-full object-contain">
+                  <img src="dlsl-logo.png" alt="De La Salle Lipa Logo" class="w-full h-full object-contain" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=200&q=80'">
                 </div>
                 <div>
                   <div class="flex items-center space-x-2">
                     <span class="px-2.5 py-0.5 rounded-md bg-brand-500/10 text-brand-400 text-xs font-mono">College</span>
-                    <span class="text-xs font-mono text-gray-400">2023 – 2027</span>
+                    <span class="text-xs font-mono text-gray-400">Fourth-Year Student</span>
                   </div>
                   <h4 class="text-xl font-bold text-white mt-1">Bachelor of Science in Information Technology</h4>
-                  <p class="text-brand-400 text-sm font-medium">De La Salle Lipa (System Development)</p>
+                  <p class="text-brand-400 text-sm font-medium">De La Salle Lipa — System Development Specialization</p>
                   <p class="text-xs text-gray-400 mt-1">Lipa City, Batangas, Philippines</p>
                 </div>
               </div>
@@ -278,112 +293,45 @@
               </div>
             </div>
           </div>
-
-          <!-- 2. Senior High School -->
-          <div class="glass-panel p-6 sm:p-8 rounded-2xl border border-gray-800 hover:border-brand-500/30 transition-all">
-            <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-              <div class="flex items-start space-x-4">
-                <div class="w-16 h-16 rounded-2xl bg-white p-2 flex items-center justify-center shrink-0 border border-gray-700 shadow-md">
-                  <img src="dlsl-logo.png" alt="De La Salle Lipa Logo" class="w-full h-full object-contain">
-                </div>
-                <div>
-                  <div class="flex items-center space-x-2">
-                    <span class="px-2.5 py-0.5 rounded-md bg-brand-accent/10 text-brand-accent text-xs font-mono">Senior High School</span>
-                    <span class="text-xs font-mono text-gray-400">2021 – 2023</span>
-                  </div>
-                  <h4 class="text-xl font-bold text-white mt-1">Science, Technology, Engineering, and Mathematics (STEM) Strand</h4>
-                  <p class="text-brand-400 text-sm font-medium">De La Salle Lipa Senior High School</p>
-                  <p class="text-xs text-gray-400 mt-1">Lipa City, Batangas, Philippines</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- 3. Junior High School -->
-          <div class="glass-panel p-6 sm:p-8 rounded-2xl border border-gray-800 hover:border-brand-500/30 transition-all">
-            <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-              <div class="flex items-start space-x-4">
-                <div class="w-16 h-16 rounded-2xl bg-white p-2 flex items-center justify-center shrink-0 border border-gray-700 shadow-md">
-                  <img src="dlsl-logo.png" alt="De La Salle Lipa Logo" class="w-full h-full object-contain">
-                </div>
-                <div>
-                  <div class="flex items-center space-x-2">
-                    <span class="px-2.5 py-0.5 rounded-md bg-purple-500/10 text-purple-400 text-xs font-mono">Junior High School</span>
-                    <span class="text-xs font-mono text-gray-400">2017 – 2020</span>
-                  </div>
-                  <h4 class="text-xl font-bold text-white mt-1">Junior High School Curriculum</h4>
-                  <p class="text-brand-400 text-sm font-medium">De La Salle Lipa Junior High School</p>
-                  <p class="text-xs text-gray-400 mt-1">Lipa City, Batangas, Philippines</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- 4. Elementary -->
-          <div class="glass-panel p-6 sm:p-8 rounded-2xl border border-gray-800 hover:border-brand-500/30 transition-all">
-            <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-              <div class="flex items-start space-x-4">
-                <div class="w-16 h-16 rounded-2xl bg-white p-2 flex items-center justify-center shrink-0 border border-gray-700 shadow-md">
-                  <img src="hts-logo.png" alt="Holy Trinity School Logo" class="w-full h-full object-contain">
-                </div>
-                <div>
-                  <div class="flex items-center space-x-2">
-                    <span class="px-2.5 py-0.5 rounded-md bg-emerald-500/10 text-emerald-400 text-xs font-mono">Elementary</span>
-                    <span class="text-xs font-mono text-gray-400">2008 – 2016</span>
-                  </div>
-                  <h4 class="text-xl font-bold text-white mt-1">Elementary Education Graduation</h4>
-                  <p class="text-brand-400 text-sm font-medium">Holy Trinity School of Padre Garcia (Mataasnakahoy Branch)</p>
-                  <p class="text-xs text-gray-400 mt-1">Mataasnakahoy, Batangas, Philippines</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
         </div>
       </section>
 
       <!-- SKILLS SECTION -->
       <section id="skills" class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
-          <div>
-            <h2 class="text-xs font-mono font-bold tracking-widest text-brand-500 uppercase mb-2">Technical Proficiency</h2>
-            <h3 class="text-3xl font-bold text-white">Languages, Frameworks & Tools</h3>
-          </div>
+        <div class="mb-12">
+          <h2 class="text-xs font-mono font-bold tracking-widest text-brand-500 uppercase mb-2">Technical Proficiency</h2>
+          <h3 class="text-3xl font-bold text-white">Languages, Frameworks & Core Competencies</h3>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           
-          <!-- Programming Languages -->
           <div class="glass-panel p-6 rounded-2xl border border-gray-800">
             <div class="w-10 h-10 rounded-xl bg-brand-500/10 flex items-center justify-center text-brand-400 mb-4">
               <i class="fa-solid fa-code text-lg"></i>
             </div>
             <h4 class="text-lg font-bold text-white mb-3">Programming</h4>
             <div class="flex flex-wrap gap-2">
-              <span class="px-2.5 py-1 rounded-md bg-dark-800 text-xs font-mono text-gray-300 border border-gray-700">HTML5</span>
-              <span class="px-2.5 py-1 rounded-md bg-dark-800 text-xs font-mono text-gray-300 border border-gray-700">CSS3</span>
+              <span class="px-2.5 py-1 rounded-md bg-dark-800 text-xs font-mono text-gray-300 border border-gray-700">Python</span>
+              <span class="px-2.5 py-1 rounded-md bg-dark-800 text-xs font-mono text-gray-300 border border-gray-700">Java</span>
               <span class="px-2.5 py-1 rounded-md bg-dark-800 text-xs font-mono text-gray-300 border border-gray-700">JavaScript</span>
               <span class="px-2.5 py-1 rounded-md bg-dark-800 text-xs font-mono text-gray-300 border border-gray-700">PHP</span>
-              <span class="px-2.5 py-1 rounded-md bg-dark-800 text-xs font-mono text-gray-300 border border-gray-700">C++</span>
-              <span class="px-2.5 py-1 rounded-md bg-dark-800 text-xs font-mono text-gray-300 border border-gray-700">TypeScript</span>
+              <span class="px-2.5 py-1 rounded-md bg-dark-800 text-xs font-mono text-gray-300 border border-gray-700">C#</span>
             </div>
           </div>
 
-          <!-- Web & Frameworks -->
           <div class="glass-panel p-6 rounded-2xl border border-gray-800">
             <div class="w-10 h-10 rounded-xl bg-brand-accent/10 flex items-center justify-center text-brand-accent mb-4">
               <i class="fa-solid fa-layer-group text-lg"></i>
             </div>
             <h4 class="text-lg font-bold text-white mb-3">Web & Frameworks</h4>
             <div class="flex flex-wrap gap-2">
+              <span class="px-2.5 py-1 rounded-md bg-dark-800 text-xs font-mono text-gray-300 border border-gray-700">HTML/CSS</span>
               <span class="px-2.5 py-1 rounded-md bg-dark-800 text-xs font-mono text-gray-300 border border-gray-700">React</span>
               <span class="px-2.5 py-1 rounded-md bg-dark-800 text-xs font-mono text-gray-300 border border-gray-700">Node.js</span>
-              <span class="px-2.5 py-1 rounded-md bg-dark-800 text-xs font-mono text-gray-300 border border-gray-700">Tailwind CSS</span>
-              <span class="px-2.5 py-1 rounded-md bg-dark-800 text-xs font-mono text-gray-300 border border-gray-700">REST APIs</span>
+              <span class="px-2.5 py-1 rounded-md bg-dark-800 text-xs font-mono text-gray-300 border border-gray-700">TypeScript</span>
             </div>
           </div>
 
-          <!-- Databases -->
           <div class="glass-panel p-6 rounded-2xl border border-gray-800">
             <div class="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 mb-4">
               <i class="fa-solid fa-database text-lg"></i>
@@ -396,16 +344,16 @@
             </div>
           </div>
 
-          <!-- Tools & Professional -->
           <div class="glass-panel p-6 rounded-2xl border border-gray-800">
             <div class="w-10 h-10 rounded-xl bg-purple-500/10 flex items-center justify-center text-purple-400 mb-4">
               <i class="fa-solid fa-screwdriver-wrench text-lg"></i>
             </div>
-            <h4 class="text-lg font-bold text-white mb-3">Tools & Agile</h4>
+            <h4 class="text-lg font-bold text-white mb-3">Tools & Soft Skills</h4>
             <div class="flex flex-wrap gap-2">
-              <span class="px-2.5 py-1 rounded-md bg-dark-800 text-xs font-mono text-gray-300 border border-gray-700">Git / GitHub</span>
+              <span class="px-2.5 py-1 rounded-md bg-dark-800 text-xs font-mono text-gray-300 border border-gray-700">Git/GitHub</span>
               <span class="px-2.5 py-1 rounded-md bg-dark-800 text-xs font-mono text-gray-300 border border-gray-700">Agile/Scrum</span>
-              <span class="px-2.5 py-1 rounded-md bg-dark-800 text-xs font-mono text-gray-300 border border-gray-700">Documentation</span>
+              <span class="px-2.5 py-1 rounded-md bg-dark-800 text-xs font-mono text-gray-300 border border-gray-700">Problem Solving</span>
+              <span class="px-2.5 py-1 rounded-md bg-dark-800 text-xs font-mono text-gray-300 border border-gray-700">Teamwork</span>
             </div>
           </div>
 
@@ -426,11 +374,11 @@
             <div>
               <div class="flex items-center justify-between mb-4">
                 <span class="px-3 py-1 rounded-md bg-brand-500/10 text-brand-400 text-xs font-mono font-semibold">Capstone Project (2025 - 2026)</span>
-                <span class="text-xs font-mono text-gray-400">Role: UI/UX & Web Dev</span>
+                <span class="text-xs font-mono text-gray-400">Role: UI/UX & Developer</span>
               </div>
-              <h4 class="text-2xl font-bold text-white mb-3">BATRACEKO: Lost & Found Web Application</h4>
+              <h4 class="text-2xl font-bold text-white mb-3">BATRACEKO Lost & Found Web Application</h4>
               <p class="text-gray-300 text-sm leading-relaxed mb-6">
-                An intelligent lost-and-found system engineered for BATRASCO Public. Integrated Google Cloud Vision API for image recognition and implemented the Sørensen–Dice coefficient algorithm to perform item description text similarity matching.
+                Engineered a lost-and-found web application for BATRASCO Public featuring image recognition using Google Cloud Vision API to identify lost items and text similarity matching using Sørensen–Dice coefficient to compare descriptions.
               </p>
               
               <ul class="space-y-2 text-xs text-gray-400 mb-6">
@@ -440,7 +388,11 @@
                 </li>
                 <li class="flex items-start">
                   <i class="fa-solid fa-check text-brand-500 mt-0.5 mr-2"></i>
-                  <span>Sørensen–Dice text matching to auto-pair reports with lost items.</span>
+                  <span>Sørensen–Dice text similarity matching algorithm for lost & found reports.</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fa-solid fa-check text-brand-500 mt-0.5 mr-2"></i>
+                  <span>Facilitated item recovery workflows for BATRASCO Public users.</span>
                 </li>
               </ul>
             </div>
@@ -453,26 +405,26 @@
             </div>
           </div>
 
-          <!-- Project 2: Unix Guild Web Portal -->
+          <!-- Project 2: Unix Guild Website -->
           <div class="glass-panel rounded-2xl p-6 sm:p-8 border border-gray-800 flex flex-col justify-between hover:border-brand-500/40 transition-colors">
             <div>
               <div class="flex items-center justify-between mb-4">
-                <span class="px-3 py-1 rounded-md bg-brand-accent/10 text-brand-accent text-xs font-mono font-semibold">Collaborative Web Project</span>
-                <span class="text-xs font-mono text-gray-400">Role: Team Member</span>
+                <span class="px-3 py-1 rounded-md bg-brand-accent/10 text-brand-accent text-xs font-mono font-semibold">Unix Guild (2022 - 2023)</span>
+                <span class="text-xs font-mono text-gray-400">Role: Team Website Developer</span>
               </div>
               <h4 class="text-2xl font-bold text-white mb-3">Unix Guild Play-To-Earn Website</h4>
               <p class="text-gray-300 text-sm leading-relaxed mb-6">
-                Collaborated with team members to design and build an online hub for Unix Guild Play to Earn. Designed to support aspiring Axie Infinity scholars with accessible guild updates, scholarship applications, and community resources.
+                Collaborated with team members to design and develop a web portal for Unix Guild Play to Earn, supporting aspiring Axie Infinity scholars by providing accessible guild, scholarship, and community resources.
               </p>
               
               <ul class="space-y-2 text-xs text-gray-400 mb-6">
                 <li class="flex items-start">
                   <i class="fa-solid fa-check text-brand-500 mt-0.5 mr-2"></i>
-                  <span>Supported Axie Infinity scholars with centralized guidelines and info.</span>
+                  <span>Provided accessible scholarship information for Axie Infinity scholars.</span>
                 </li>
                 <li class="flex items-start">
                   <i class="fa-solid fa-check text-brand-500 mt-0.5 mr-2"></i>
-                  <span>Integrated Discord and Web community links.</span>
+                  <span>Established online platform connecting applicants with guild leadership.</span>
                 </li>
               </ul>
             </div>
@@ -480,7 +432,70 @@
             <div class="flex flex-wrap gap-2 pt-4 border-t border-gray-800">
               <span class="px-2.5 py-1 rounded bg-dark-900 text-xs font-mono text-gray-400">HTML/CSS</span>
               <span class="px-2.5 py-1 rounded bg-dark-900 text-xs font-mono text-gray-400">JavaScript</span>
-              <span class="px-2.5 py-1 rounded bg-dark-900 text-xs font-mono text-gray-400">UI/UX Design</span>
+              <span class="px-2.5 py-1 rounded bg-dark-900 text-xs font-mono text-gray-400">Web Design</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ACHIEVEMENTS SECTION -->
+      <section id="achievements" class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="mb-12">
+          <h2 class="text-xs font-mono font-bold tracking-widest text-brand-500 uppercase mb-2">Milestones & Honors</h2>
+          <h3 class="text-3xl font-bold text-white">Achievements & Key Contributions</h3>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          
+          <!-- Achievement 1 -->
+          <div class="glass-panel p-6 rounded-2xl border border-gray-800 hover:border-brand-500/40 transition-all flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-brand-500/10 border border-brand-500/20 flex items-center justify-center text-brand-400 text-xl mb-4">
+                <i class="fa-solid fa-trophy"></i>
+              </div>
+              <span class="text-xs font-mono text-gray-400">2025 - 2026</span>
+              <h4 class="text-lg font-bold text-white mt-1 mb-2">BATRACEKO System Launch</h4>
+              <p class="text-gray-400 text-sm leading-relaxed">
+                Successfully architected and deployed a lost-and-found system for BATRASCO Public integrating Google Cloud Vision API and Sørensen-Dice matching algorithm.
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-gray-800 text-xs font-mono text-brand-400">
+              <span>System Development Capstone</span>
+            </div>
+          </div>
+
+          <!-- Achievement 2 -->
+          <div class="glass-panel p-6 rounded-2xl border border-gray-800 hover:border-brand-500/40 transition-all flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-brand-accent/10 border border-brand-accent/20 flex items-center justify-center text-brand-accent text-xl mb-4">
+                <i class="fa-solid fa-medal"></i>
+              </div>
+              <span class="text-xs font-mono text-gray-400">September 2026</span>
+              <h4 class="text-lg font-bold text-white mt-1 mb-2">Cisco Certified Proficiency</h4>
+              <p class="text-gray-400 text-sm leading-relaxed">
+                Earned Cisco Networking Academy certifications in both HTML Essentials and CSS Essentials, demonstrating mastery in frontend standards.
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-gray-800 text-xs font-mono text-brand-accent">
+              <span>Cisco Networking Academy</span>
+            </div>
+          </div>
+
+          <!-- Achievement 3 -->
+          <div class="glass-panel p-6 rounded-2xl border border-gray-800 hover:border-brand-500/40 transition-all flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400 text-xl mb-4">
+                <i class="fa-solid fa-users-gear"></i>
+              </div>
+              <span class="text-xs font-mono text-gray-400">2023 - Present</span>
+              <h4 class="text-lg font-bold text-white mt-1 mb-2">JPCS Leadership & Activity Execution</h4>
+              <p class="text-gray-400 text-sm leading-relaxed">
+                Active member in the Junior Philippine Computer Society, facilitating event planning, task oversight, and IT student activities.
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-gray-800 text-xs font-mono text-purple-400">
+              <span>Junior Philippine Computer Society</span>
             </div>
           </div>
 
@@ -495,9 +510,7 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          
-          <!-- Certification 1 -->
-          <div class="glass-panel p-6 sm:p-8 rounded-2xl border border-gray-800 hover:border-brand-500/40 transition-all flex items-start space-x-5">
+          <div class="glass-panel p-6 sm:p-8 rounded-2xl border border-gray-800 flex items-start space-x-5">
             <div class="w-14 h-14 rounded-2xl bg-brand-500/10 border border-brand-500/20 flex items-center justify-center shrink-0 text-brand-400 text-2xl">
               <i class="fa-solid fa-certificate"></i>
             </div>
@@ -507,18 +520,11 @@
                 <span class="text-xs font-mono text-gray-400">September 2026</span>
               </div>
               <h4 class="text-xl font-bold text-white">HTML Essentials</h4>
-              <p class="text-gray-400 text-sm leading-relaxed">
-                Demonstrated proficiency in semantic HTML structures, web accessibility standards, form controls, and modern document layout architecture.
-              </p>
-              <div class="pt-2 flex items-center space-x-2 text-xs font-mono text-brand-400">
-                <i class="fa-solid fa-award"></i>
-                <span>Verified Certification</span>
-              </div>
+              <p class="text-gray-400 text-sm">Demonstrated proficiency in semantic document structure, accessibility standards, and modern web layouts.</p>
             </div>
           </div>
 
-          <!-- Certification 2 -->
-          <div class="glass-panel p-6 sm:p-8 rounded-2xl border border-gray-800 hover:border-brand-500/40 transition-all flex items-start space-x-5">
+          <div class="glass-panel p-6 sm:p-8 rounded-2xl border border-gray-800 flex items-start space-x-5">
             <div class="w-14 h-14 rounded-2xl bg-brand-accent/10 border border-brand-accent/20 flex items-center justify-center shrink-0 text-brand-accent text-2xl">
               <i class="fa-solid fa-award"></i>
             </div>
@@ -528,97 +534,90 @@
                 <span class="text-xs font-mono text-gray-400">September 2026</span>
               </div>
               <h4 class="text-xl font-bold text-white">CSS Essentials</h4>
-              <p class="text-gray-400 text-sm leading-relaxed">
-                Verified skill in CSS layout systems (Flexbox & Grid), responsive design principles, custom animations, UI styling, and cross-browser formatting.
-              </p>
-              <div class="pt-2 flex items-center space-x-2 text-xs font-mono text-brand-accent">
-                <i class="fa-solid fa-award"></i>
-                <span>Verified Certification</span>
-              </div>
+              <p class="text-gray-400 text-sm">Verified skills in layout systems (Flexbox & Grid), visual styling, and responsive design principles.</p>
             </div>
           </div>
-
         </div>
       </section>
 
-      <!-- EXPERIENCE SECTION -->
+      <!-- EXPERIENCE & LEADERSHIP SECTION -->
       <section id="experience" class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
           
-          <!-- Experience & Leadership -->
           <div>
             <div class="mb-8">
               <h2 class="text-xs font-mono font-bold tracking-widest text-brand-500 uppercase mb-2">Work & Volunteer</h2>
-              <h3 class="text-2xl font-bold text-white">Experience & Roles</h3>
-            </div>
-
-            <div class="space-y-6 relative border-l-2 border-gray-800 pl-6 ml-2">
-              
-              <!-- Sentinels Marshall -->
-              <div class="relative">
-                <div class="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-brand-500 border-4 border-dark-900"></div>
-                <span class="text-xs font-mono text-gray-500">March 2026</span>
-                <h4 class="text-lg font-bold text-white">Sentinels Marshall</h4>
-                <p class="text-brand-400 text-xs font-mono mb-2">YGG PH</p>
-                <p class="text-gray-400 text-sm">Monitored and verified attendance at meetings and community activities; utilized Discord, Google Meet, and Zoom to coordinate communications.</p>
-              </div>
-
-              <!-- Unix Guild Leader -->
-              <div class="relative">
-                <div class="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-gray-700 border-4 border-dark-900"></div>
-                <span class="text-xs font-mono text-gray-500">2021 – 2022</span>
-                <h4 class="text-lg font-bold text-white">Team Leader & Promoter</h4>
-                <p class="text-brand-400 text-xs font-mono mb-2">Unix Guild</p>
-                <p class="text-gray-400 text-sm">Managed Axie Infinity scholarship activities, assisted scholars with QR code access, and promoted guild updates across social platforms.</p>
-              </div>
-
-              <!-- JPCS Member -->
-              <div class="relative">
-                <div class="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-gray-700 border-4 border-dark-900"></div>
-                <span class="text-xs font-mono text-gray-500">2023 – Present</span>
-                <h4 class="text-lg font-bold text-white">Member</h4>
-                <p class="text-brand-400 text-xs font-mono mb-2">Junior Philippine Computer Society (JPCS)</p>
-                <p class="text-gray-400 text-sm">Provided support in planning society events, managing student activities, and facilitating team coordination.</p>
-              </div>
-
-            </div>
-          </div>
-
-          <!-- Languages & Professional Competencies -->
-          <div>
-            <div class="mb-8">
-              <h2 class="text-xs font-mono font-bold tracking-widest text-brand-500 uppercase mb-2">Communications</h2>
-              <h3 class="text-2xl font-bold text-white">Languages & Skills</h3>
+              <h3 class="text-2xl font-bold text-white">Experience</h3>
             </div>
 
             <div class="space-y-6">
               <div class="glass-panel p-6 rounded-2xl border border-gray-800">
-                <h4 class="text-base font-bold text-white mb-4 flex items-center">
-                  <i class="fa-solid fa-language text-brand-accent mr-2"></i>
-                  Languages
-                </h4>
-                <div class="grid grid-cols-2 gap-4">
-                  <div class="bg-dark-800 p-3.5 rounded-xl border border-gray-700/50">
-                    <p class="text-sm font-bold text-white">Filipino</p>
-                    <p class="text-xs text-gray-400">Native Proficiency</p>
-                  </div>
-                  <div class="bg-dark-800 p-3.5 rounded-xl border border-gray-700/50">
-                    <p class="text-sm font-bold text-white">English</p>
-                    <p class="text-xs text-gray-400">Professional Proficiency</p>
-                  </div>
+                <div class="flex items-center justify-between mb-1">
+                  <h4 class="text-lg font-bold text-white">Sentinels Marshall</h4>
+                  <span class="text-xs font-mono text-gray-400">March 2026</span>
                 </div>
+                <p class="text-xs text-brand-400 font-medium mb-3">YGG PH</p>
+                <ul class="text-gray-300 text-sm space-y-1.5 list-disc list-inside">
+                  <li>Monitored and verified attendance at meetings and community activities.</li>
+                  <li>Utilized Discord, Google Meet, and Zoom to coordinate meetings and communicate with members.</li>
+                </ul>
               </div>
 
               <div class="glass-panel p-6 rounded-2xl border border-gray-800">
-                <h4 class="text-base font-bold text-white mb-3 flex items-center">
-                  <i class="fa-solid fa-users text-brand-500 mr-2"></i>
-                  Soft Skills & Softwares
-                </h4>
-                <div class="flex flex-wrap gap-2">
-                  <span class="px-3 py-1.5 rounded-lg bg-dark-800 text-xs font-mono text-gray-300 border border-gray-700">Team Leadership</span>
-                  <span class="px-3 py-1.5 rounded-lg bg-dark-800 text-xs font-mono text-gray-300 border border-gray-700">Technical Documentation</span>
-                  <span class="px-3 py-1.5 rounded-lg bg-dark-800 text-xs font-mono text-gray-300 border border-gray-700">Problem Solving</span>
-                  <span class="px-3 py-1.5 rounded-lg bg-dark-800 text-xs font-mono text-gray-300 border border-gray-700">Agile / Scrum</span>
+                <div class="flex items-center justify-between mb-1">
+                  <h4 class="text-lg font-bold text-white">Team Leader</h4>
+                  <span class="text-xs font-mono text-gray-400">Oct 2021 – 2022</span>
+                </div>
+                <p class="text-xs text-brand-400 font-medium mb-3">Unix Guild</p>
+                <ul class="text-gray-300 text-sm space-y-1.5 list-disc list-inside">
+                  <li>Managed Axie Infinity scholarship-related activities and assisted scholars with QR code access.</li>
+                  <li>Communicated and coordinated with guild members through Discord and Sky Mavis platforms.</li>
+                </ul>
+              </div>
+
+              <div class="glass-panel p-6 rounded-2xl border border-gray-800">
+                <div class="flex items-center justify-between mb-1">
+                  <h4 class="text-lg font-bold text-white">Unix Promoter</h4>
+                  <span class="text-xs font-mono text-gray-400">Oct 2022</span>
+                </div>
+                <p class="text-xs text-brand-400 font-medium mb-3">Unix Guild</p>
+                <p class="text-gray-300 text-sm leading-relaxed">
+                  Promoted Unix Guild across Facebook, X (Twitter), Instagram, and TikTok to share guild updates and increase community engagement.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div class="mb-8">
+              <h2 class="text-xs font-mono font-bold tracking-widest text-brand-500 uppercase mb-2">Organizations</h2>
+              <h3 class="text-2xl font-bold text-white">Leadership & Activities</h3>
+            </div>
+
+            <div class="space-y-6">
+              <div class="glass-panel p-6 rounded-2xl border border-gray-800">
+                <div class="flex items-center justify-between mb-1">
+                  <h4 class="text-lg font-bold text-white">Member</h4>
+                  <span class="text-xs font-mono text-gray-400">2023 – Present</span>
+                </div>
+                <p class="text-xs text-brand-400 font-medium mb-3">Junior Philippine Computer Society (JPCS)</p>
+                <ul class="text-gray-300 text-sm space-y-2">
+                  <li class="flex items-start">
+                    <i class="fa-solid fa-angle-right text-brand-500 mt-1 mr-2"></i>
+                    <span>Provided support in planning and managing society events and student activities.</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fa-solid fa-angle-right text-brand-500 mt-1 mr-2"></i>
+                    <span>Facilitated team coordination and oversaw event execution, ensuring timely and efficient completion of tasks.</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="glass-panel p-6 rounded-2xl border border-gray-800">
+                <h4 class="text-lg font-bold text-white mb-2">Languages</h4>
+                <div class="space-y-2 text-sm text-gray-300">
+                  <p><strong class="text-white">English:</strong> Professional proficiency</p>
+                  <p><strong class="text-white">Filipino:</strong> Native language</p>
                 </div>
               </div>
             </div>
@@ -635,79 +634,62 @@
             <div class="lg:col-span-5 space-y-6">
               <div>
                 <h2 class="text-xs font-mono font-bold tracking-widest text-brand-500 uppercase mb-2">Get In Touch</h2>
-                <h3 class="text-3xl font-bold text-white">Let's Connect & Work Together</h3>
+                <h3 class="text-3xl font-bold text-white">Let's Connect & Collaborate</h3>
               </div>
-
               <p class="text-gray-300 text-sm leading-relaxed">
-                Whether you have an internship opportunity, a web project, or just want to connect, feel free to drop me a message!
+                Seeking an IT internship to apply technical, analytical, and problem-solving skills, contribute to real-world software development projects, and gain practical experience.
               </p>
 
               <div class="space-y-4 pt-2">
-                <div class="flex items-center space-x-4 p-3 rounded-xl bg-dark-800/80 border border-gray-700/50">
+                <a href="mailto:biscocho.lorenz4@gmail.com" class="flex items-center space-x-4 p-4 rounded-xl bg-dark-800/80 border border-gray-700/60 hover:border-brand-500/40 transition-colors">
                   <div class="w-10 h-10 rounded-lg bg-brand-500/10 flex items-center justify-center text-brand-400">
                     <i class="fa-solid fa-envelope"></i>
                   </div>
                   <div>
-                    <p class="text-xs font-mono text-gray-400">Direct Email</p>
+                    <p class="text-xs text-gray-400 font-mono">EMAIL ME AT</p>
                     <p class="text-sm font-semibold text-white">biscocho.lorenz4@gmail.com</p>
                   </div>
-                </div>
+                </a>
 
-                <div class="flex items-center space-x-4 p-3 rounded-xl bg-dark-800/80 border border-gray-700/50">
-                  <div class="w-10 h-10 rounded-lg bg-brand-500/10 flex items-center justify-center text-brand-400">
+                <a href="tel:+639060457314" class="flex items-center space-x-4 p-4 rounded-xl bg-dark-800/80 border border-gray-700/60 hover:border-brand-500/40 transition-colors">
+                  <div class="w-10 h-10 rounded-lg bg-brand-accent/10 flex items-center justify-center text-brand-accent">
                     <i class="fa-solid fa-phone"></i>
                   </div>
                   <div>
-                    <p class="text-xs font-mono text-gray-400">Phone</p>
+                    <p class="text-xs text-gray-400 font-mono">PHONE / MOBILE</p>
                     <p class="text-sm font-semibold text-white">+63 906 045 7314</p>
                   </div>
-                </div>
-
-                <div class="flex items-center space-x-4 p-3 rounded-xl bg-dark-800/80 border border-gray-700/50">
-                  <div class="w-10 h-10 rounded-lg bg-brand-500/10 flex items-center justify-center text-brand-400">
-                    <i class="fa-solid fa-location-dot"></i>
-                  </div>
-                  <div>
-                    <p class="text-xs font-mono text-gray-400">Location</p>
-                    <p class="text-sm font-semibold text-white">Mataasnakahoy, Batangas, Philippines</p>
-                  </div>
-                </div>
+                </a>
               </div>
             </div>
 
-            <!-- Formspree Integration Form -->
+            <!-- Contact Form -->
             <div class="lg:col-span-7">
-              <form id="contactForm" action="https://formspree.io/f/xqpewlrj" method="POST" class="space-y-5">
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <form onsubmit="event.preventDefault(); alert('Thank you! Your message has been received.');" class="space-y-4">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label for="name" class="block text-xs font-mono text-gray-300 mb-2">Your Name *</label>
-                    <input type="text" id="name" name="name" required placeholder="John Doe" class="w-full px-4 py-3 rounded-xl bg-dark-800 border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-colors text-sm">
+                    <label class="block text-xs font-mono text-gray-400 mb-1">YOUR NAME</label>
+                    <input type="text" required placeholder="John Doe" class="w-full px-4 py-3 rounded-xl bg-dark-900/80 border border-gray-700/80 text-white placeholder-gray-500 focus:outline-none focus:border-brand-500 text-sm transition-colors">
                   </div>
                   <div>
-                    <label for="email" class="block text-xs font-mono text-gray-300 mb-2">Your Email *</label>
-                    <input type="email" id="email" name="email" required placeholder="john@example.com" class="w-full px-4 py-3 rounded-xl bg-dark-800 border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-colors text-sm">
+                    <label class="block text-xs font-mono text-gray-400 mb-1">YOUR EMAIL</label>
+                    <input type="email" required placeholder="john@example.com" class="w-full px-4 py-3 rounded-xl bg-dark-900/80 border border-gray-700/80 text-white placeholder-gray-500 focus:outline-none focus:border-brand-500 text-sm transition-colors">
                   </div>
                 </div>
 
                 <div>
-                  <label for="subject" class="block text-xs font-mono text-gray-300 mb-2">Subject</label>
-                  <input type="text" id="subject" name="_subject" placeholder="Project Inquiry / Internship Opportunity" class="w-full px-4 py-3 rounded-xl bg-dark-800 border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-colors text-sm">
+                  <label class="block text-xs font-mono text-gray-400 mb-1">SUBJECT</label>
+                  <input type="text" required placeholder="Inquiry regarding IT Internship / Project" class="w-full px-4 py-3 rounded-xl bg-dark-900/80 border border-gray-700/80 text-white placeholder-gray-500 focus:outline-none focus:border-brand-500 text-sm transition-colors">
                 </div>
 
                 <div>
-                  <label for="message" class="block text-xs font-mono text-gray-300 mb-2">Message *</label>
-                  <textarea id="message" name="message" rows="4" required placeholder="Write your message here..." class="w-full px-4 py-3 rounded-xl bg-dark-800 border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-colors text-sm resize-none"></textarea>
+                  <label class="block text-xs font-mono text-gray-400 mb-1">MESSAGE</label>
+                  <textarea rows="4" required placeholder="Write your message here..." class="w-full px-4 py-3 rounded-xl bg-dark-900/80 border border-gray-700/80 text-white placeholder-gray-500 focus:outline-none focus:border-brand-500 text-sm transition-colors custom-scrollbar"></textarea>
                 </div>
 
-                <div class="pt-2">
-                  <button type="submit" id="submitBtn" class="w-full py-3.5 px-6 rounded-xl bg-gradient-to-r from-brand-500 to-emerald-600 text-dark-900 font-bold hover:shadow-lg hover:shadow-brand-500/20 transition-all flex items-center justify-center space-x-2">
-                    <i class="fa-solid fa-paper-plane"></i>
-                    <span>Send Message</span>
-                  </button>
-                </div>
-
-                <!-- Live Form Status Message -->
-                <div id="formStatus" class="hidden p-4 rounded-xl text-xs font-mono text-center"></div>
+                <button type="submit" class="w-full py-3.5 px-6 rounded-xl bg-gradient-to-r from-brand-500 to-emerald-600 text-dark-900 font-bold hover:shadow-lg hover:shadow-brand-500/25 transition-all">
+                  Send Message
+                </button>
               </form>
             </div>
 
@@ -717,107 +699,140 @@
 
     </main>
 
-    <!-- Footer -->
-    <footer class="glass-nav py-8 border-t border-gray-800">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-        <p class="text-xs text-gray-400 font-mono">
-          &copy; <span id="currentYear"></span> Lorenz Allen M. Biscocho. All rights reserved.
-        </p>
-        <div class="flex items-center space-x-4 text-xs font-mono text-gray-400">
-          <span>De La Salle Lipa</span>
-          <span>•</span>
-          <span>Mataasnakahoy, Batangas</span>
+    <!-- FOOTER -->
+    <footer class="border-t border-gray-800 bg-dark-900/80 backdrop-blur-md py-8 relative z-10">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="flex items-center space-x-2">
+          <span class="font-mono text-sm font-bold text-white">Lorenz<span class="text-brand-500">.dev</span></span>
+          <span class="text-gray-600">|</span>
+          <span class="text-xs text-gray-400">© 2026 Lorenz Allen M. Biscocho. All rights reserved.</span>
+        </div>
+
+        <div class="flex items-center space-x-6 text-gray-400 text-lg">
+          <a href="https://github.com/LorenzAllen26" target="_blank" rel="noopener noreferrer" class="hover:text-brand-400 transition-colors"><i class="fa-brands fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/lorenz-allen-biscocho-82a962218/?isSelfProfile=true" target="_blank" rel="noopener noreferrer" class="hover:text-brand-400 transition-colors"><i class="fa-brands fa-linkedin"></i></a>
+          <button onclick="openResumeModal()" class="text-brand-400 text-sm font-mono hover:underline"><i class="fa-regular fa-file-pdf mr-1"></i>resume.pdf</button>
         </div>
       </div>
     </footer>
 
   </div>
 
+  <!-- RESUME MODAL VIEWER -->
+  <div id="resumeModal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="relative w-full max-w-5xl h-[90vh] glass-panel rounded-2xl border border-gray-700 flex flex-col overflow-hidden shadow-2xl">
+      
+      <!-- Modal Header -->
+      <div class="flex items-center justify-between px-6 py-4 border-b border-gray-800 bg-dark-900/90">
+        <div class="flex items-center space-x-3">
+          <i class="fa-regular fa-file-pdf text-brand-400 text-xl"></i>
+          <div>
+            <h3 class="text-white font-bold text-base sm:text-lg">resume.pdf</h3>
+            <p class="text-xs text-gray-400 font-mono">Curriculum Vitae / Document Viewer</p>
+          </div>
+        </div>
+
+        <div class="flex items-center space-x-3">
+          <!-- Download Link -->
+          <a href="resume.pdf" download="resume.pdf" target="_blank" class="px-4 py-2 rounded-lg bg-brand-500/10 border border-brand-500/30 text-brand-400 hover:bg-brand-500 hover:text-dark-900 text-xs font-semibold transition-all flex items-center space-x-1.5">
+            <i class="fa-solid fa-download"></i>
+            <span>Download PDF</span>
+          </a>
+
+          <!-- Close Modal Button -->
+          <button onclick="closeResumeModal()" class="w-9 h-9 rounded-lg bg-gray-800 hover:bg-gray-700 text-gray-300 hover:text-white flex items-center justify-center transition-colors">
+            <i class="fa-solid fa-xmark text-lg"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="flex-grow w-full bg-dark-900 relative">
+        <object data="resume.pdf" type="application/pdf" class="w-full h-full">
+          <embed src="resume.pdf" type="application/pdf" class="w-full h-full" />
+          
+          <!-- Fallback UI if local browser restricts inline file previewing -->
+          <div class="absolute inset-0 flex flex-col items-center justify-center p-6 text-center bg-dark-900/95 space-y-4">
+            <i class="fa-regular fa-file-pdf text-5xl text-brand-400"></i>
+            <p class="text-white font-semibold text-lg">PDF Preview Restricted by Browser Security</p>
+            <p class="text-gray-400 text-sm max-w-md">Browsers block embedding local PDF files directly when opening HTML files from disk. Click below to view or download:</p>
+            <a href="resume.pdf" target="_blank" class="px-6 py-3 rounded-xl bg-brand-500 text-dark-900 font-bold hover:bg-brand-400 transition-colors flex items-center space-x-2">
+              <i class="fa-solid fa-up-right-from-square"></i>
+              <span>Open PDF in New Tab</span>
+            </a>
+          </div>
+        </object>
+      </div>
+
+    </div>
+  </div>
+
   <!-- JavaScript Logic -->
   <script>
-    // Set Current Year
-    document.getElementById('currentYear').textContent = new Date().getFullYear();
-
-    // Mobile Menu Toggle
+    // Mobile Navigation Menu Toggle
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
+
     mobileMenuBtn.addEventListener('click', () => {
       mobileMenu.classList.toggle('hidden');
     });
 
-    // Dynamic Typewriter Effect
-    const roles = ["Frontend Developer", "BS IT Student @ DLSL", "System Developer", "Tech Enthusiast"];
-    let roleIdx = 0;
-    let charIdx = 0;
-    let isDeleting = false;
-    const typewriterEl = document.getElementById('typewriter');
+    // Resume Modal Functions
+    const resumeModal = document.getElementById('resumeModal');
 
-    function typeEffect() {
-      const currentRole = roles[roleIdx];
-      if (isDeleting) {
-        typewriterEl.textContent = currentRole.substring(0, charIdx - 1);
-        charIdx--;
-      } else {
-        typewriterEl.textContent = currentRole.substring(0, charIdx + 1);
-        charIdx++;
-      }
-
-      let speed = isDeleting ? 50 : 100;
-
-      if (!isDeleting && charIdx === currentRole.length) {
-        speed = 2000;
-        isDeleting = true;
-      } else if (isDeleting && charIdx === 0) {
-        isDeleting = false;
-        roleIdx = (roleIdx + 1) % roles.length;
-        speed = 500;
-      }
-
-      setTimeout(typeEffect, speed);
+    function openResumeModal() {
+      resumeModal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
     }
-    typeEffect();
 
-    // Formspree AJAX Submission Handling
-    const contactForm = document.getElementById('contactForm');
-    const submitBtn = document.getElementById('submitBtn');
-    const formStatus = document.getElementById('formStatus');
+    function closeResumeModal() {
+      resumeModal.classList.add('hidden');
+      document.body.style.overflow = 'auto';
+    }
 
-    contactForm.addEventListener('submit', async function(e) {
-      e.preventDefault();
-
-      submitBtn.disabled = true;
-      submitBtn.innerHTML = '<i class="fa-solid fa-spinner animate-spin"></i><span>Sending...</span>';
-      formStatus.classList.add('hidden');
-
-      const formData = new FormData(contactForm);
-
-      try {
-        const response = await fetch(contactForm.action, {
-          method: 'POST',
-          body: formData,
-          headers: {
-            'Accept': 'application/json'
-          }
-        });
-
-        if (response.ok) {
-          formStatus.className = "p-4 rounded-xl text-xs font-mono text-center bg-brand-500/10 border border-brand-500/30 text-brand-400";
-          formStatus.innerHTML = '<i class="fa-solid fa-circle-check mr-2"></i>Message sent successfully! Lorenz will get back to you soon.';
-          formStatus.classList.remove('hidden');
-          contactForm.reset();
-        } else {
-          const data = await response.json();
-          throw new Error(data.errors ? data.errors.map(e => e.message).join(", ") : "Form submission failed.");
-        }
-      } catch (error) {
-        formStatus.className = "p-4 rounded-xl text-xs font-mono text-center bg-red-500/10 border border-red-500/30 text-red-400";
-        formStatus.innerHTML = `<i class="fa-solid fa-triangle-exclamation mr-2"></i>Oops! Something went wrong (${error.message}). Please try again.`;
-        formStatus.classList.remove('hidden');
-      } finally {
-        submitBtn.disabled = false;
-        submitBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i><span>Send Message</span>';
+    // Close modal when clicking outside content box
+    resumeModal.addEventListener('click', (e) => {
+      if (e.target === resumeModal) {
+        closeResumeModal();
       }
     });
+
+    // Close on Escape key press
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !resumeModal.classList.contains('hidden')) {
+        closeResumeModal();
+      }
+    });
+
+    // Typewriter Effect
+    const words = ["System Developer", "BS IT Senior Student @ DLSL", "Full-Stack Web Developer", "API Integration Specialist"];
+    let wordIndex = 0, charIndex = 0, isDeleting = false;
+
+    function typeEffect() {
+      const currentWord = words[wordIndex];
+      const typewriterElement = document.getElementById("typewriter");
+
+      if (isDeleting) {
+        typewriterElement.textContent = currentWord.substring(0, charIndex - 1);
+        charIndex--;
+      } else {
+        typewriterElement.textContent = currentWord.substring(0, charIndex + 1);
+        charIndex++;
+      }
+
+      if (!isDeleting && charIndex === currentWord.length) {
+        isDeleting = true;
+        setTimeout(typeEffect, 2000);
+      } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        wordIndex = (wordIndex + 1) % words.length;
+        setTimeout(typeEffect, 500);
+      } else {
+        setTimeout(typeEffect, isDeleting ? 50 : 100);
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", typeEffect);
   </script>
 </body>
 </html>

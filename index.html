@@ -69,9 +69,44 @@
       background: #1f2937;
       border-radius: 4px;
     }
+
+    /* ===== Intro gate ===== */
+    #introGate{position:fixed;inset:0;z-index:100;background:radial-gradient(ellipse at 30% 20%,rgba(34,197,94,.10),transparent 55%),radial-gradient(ellipse at 80% 80%,rgba(56,189,248,.08),transparent 55%),#0b0f19;transition:opacity .6s ease,transform .6s ease}
+    #introGate.ig-out{opacity:0;transform:scale(1.03);pointer-events:none}
+    #introGate .ig-ghost{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding-bottom:6vh;font:800 58vh/1 Inter,sans-serif;color:rgba(74,222,128,.07);user-select:none;pointer-events:none}
+    #igCanvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none;cursor:crosshair;z-index:1}
+    #introGate .ig-top{position:absolute;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:32px 42px;z-index:2;pointer-events:none}
+    #introGate .ig-name{font:600 12px Inter,sans-serif;letter-spacing:.22em;color:#4ade80;margin-right:16px}
+    #introGate .ig-tag{font:500 12px Inter,sans-serif;letter-spacing:.22em;color:#9ca3af}
+    #igSkip{pointer-events:auto;background:none;border:0;color:#9ca3af;font:500 15px Inter,sans-serif;cursor:pointer;padding:6px 10px;border-radius:8px}
+    #igSkip:hover{color:#fff}
+    #igSkip:focus-visible{outline:2px solid #4ade80;outline-offset:2px}
+    #introGate .ig-bottom{position:absolute;left:0;right:0;bottom:7vh;text-align:center;z-index:2;pointer-events:none;font-family:Inter,sans-serif}
+    #igMsg{font-size:22px;font-weight:500;color:#e5e7eb;margin:0 0 18px}
+    #igMsg b{color:#4ade80;font-weight:700}
+    #introGate .ig-bottom p+p{font-size:15px;color:#9ca3af;margin:0}
+    #introGate kbd{font:600 12px Inter,sans-serif;color:#e5e7eb;background:#111827;border:1px solid #374151;border-radius:6px;padding:4px 9px;margin-left:6px}
+    #introGate.ig-shake .ig-ghost{animation:igShake .4s}
+    @keyframes igShake{20%{transform:translateX(-12px)}40%{transform:translateX(12px)}60%{transform:translateX(-8px)}80%{transform:translateX(8px)}}
+    @media (max-width:640px){#introGate .ig-top{padding:22px 20px}#introGate .ig-tag{display:none}#igMsg{font-size:18px}}
+    @media (prefers-reduced-motion:reduce){#introGate{transition:none}#introGate.ig-shake .ig-ghost{animation:none}}
   </style>
 </head>
 <body class="bg-dark-900 text-gray-200 font-sans antialiased custom-scrollbar selection:bg-brand-500 selection:text-dark-900">
+
+  <!-- INTRO GATE: draw an "L" to enter -->
+  <div id="introGate" role="dialog" aria-label="Draw an L or press Enter to enter the portfolio">
+    <div class="ig-ghost" aria-hidden="true">L</div>
+    <canvas id="igCanvas"></canvas>
+    <div class="ig-top">
+      <div><span class="ig-name">LORENZ BISCOCHO</span><span class="ig-tag">PORTFOLIO</span></div>
+      <button id="igSkip" type="button">Skip intro</button>
+    </div>
+    <div class="ig-bottom">
+      <p id="igMsg" aria-live="polite">Draw an <b>L</b> to enter</p>
+      <p>or press <kbd>Enter</kbd></p>
+    </div>
+  </div>
 
   <!-- Ambient Glowing Background Spheres -->
   <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
@@ -358,60 +393,47 @@
           <h3 class="text-3xl font-bold text-white">Languages, Frameworks & Core Competencies</h3>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          
-          <div class="glass-panel p-6 rounded-2xl border border-gray-800">
-            <div class="w-10 h-10 rounded-xl bg-brand-500/10 flex items-center justify-center text-brand-400 mb-4">
-              <i class="fa-solid fa-code text-lg"></i>
+        <div class="border-b border-gray-800">
+          <div class="grid grid-cols-1 md:grid-cols-[17rem_1fr] gap-x-8 gap-y-4 items-center py-7 border-t border-gray-800">
+            <div class="flex items-center gap-4">
+              <span class="text-xs font-mono text-brand-500/80 w-5">01</span>
+              <h4 class="text-base font-semibold text-white">Programming</h4>
             </div>
-            <h4 class="text-lg font-bold text-white mb-3">Programming</h4>
-            <div class="flex flex-wrap gap-2">
-              <span class="px-2.5 py-1 rounded-md bg-dark-800 text-xs font-mono text-gray-300 border border-gray-700">Python</span>
-              <span class="px-2.5 py-1 rounded-md bg-dark-800 text-xs font-mono text-gray-300 border border-gray-700">Java</span>
-              <span class="px-2.5 py-1 rounded-md bg-dark-800 text-xs font-mono text-gray-300 border border-gray-700">JavaScript</span>
-              <span class="px-2.5 py-1 rounded-md bg-dark-800 text-xs font-mono text-gray-300 border border-gray-700">PHP</span>
-              <span class="px-2.5 py-1 rounded-md bg-dark-800 text-xs font-mono text-gray-300 border border-gray-700">C#</span>
+            <div class="flex flex-wrap items-center gap-x-9 gap-y-4">
+              
+<span class="inline-flex items-center gap-2.5 text-sm font-medium text-gray-200"><i class="fa-brands fa-python w-5 text-center text-lg" style="color:#3776ab"></i>Python</span>              <span class="inline-flex items-center gap-2.5 text-sm font-medium text-gray-200"><i class="fa-brands fa-java w-5 text-center text-lg" style="color:#ea2d2e"></i>Java</span>              <span class="inline-flex items-center gap-2.5 text-sm font-medium text-gray-200"><i class="fa-brands fa-js w-5 text-center text-lg" style="color:#f7df1e"></i>JavaScript</span>              <span class="inline-flex items-center gap-2.5 text-sm font-medium text-gray-200"><i class="fa-brands fa-php w-5 text-center text-lg" style="color:#8892bf"></i>PHP</span>              <span class="inline-flex items-center gap-2.5 text-sm font-medium text-gray-200"><span class="w-5 h-5 rounded flex items-center justify-center text-[9px] font-bold leading-none" style="background:#00599c;color:#fff">C++</span>C++</span>
             </div>
           </div>
-
-          <div class="glass-panel p-6 rounded-2xl border border-gray-800">
-            <div class="w-10 h-10 rounded-xl bg-brand-accent/10 flex items-center justify-center text-brand-accent mb-4">
-              <i class="fa-solid fa-layer-group text-lg"></i>
+          <div class="grid grid-cols-1 md:grid-cols-[17rem_1fr] gap-x-8 gap-y-4 items-center py-7 border-t border-gray-800">
+            <div class="flex items-center gap-4">
+              <span class="text-xs font-mono text-brand-500/80 w-5">02</span>
+              <h4 class="text-base font-semibold text-white">Web & Frameworks</h4>
             </div>
-            <h4 class="text-lg font-bold text-white mb-3">Web & Frameworks</h4>
-            <div class="flex flex-wrap gap-2">
-              <span class="px-2.5 py-1 rounded-md bg-dark-800 text-xs font-mono text-gray-300 border border-gray-700">HTML/CSS</span>
-              <span class="px-2.5 py-1 rounded-md bg-dark-800 text-xs font-mono text-gray-300 border border-gray-700">React</span>
-              <span class="px-2.5 py-1 rounded-md bg-dark-800 text-xs font-mono text-gray-300 border border-gray-700">Node.js</span>
-              <span class="px-2.5 py-1 rounded-md bg-dark-800 text-xs font-mono text-gray-300 border border-gray-700">TypeScript</span>
+            <div class="flex flex-wrap items-center gap-x-9 gap-y-4">
+              
+<span class="inline-flex items-center gap-2.5 text-sm font-medium text-gray-200"><i class="fa-brands fa-html5 w-5 text-center text-lg" style="color:#e34f26"></i>HTML/CSS</span>              <span class="inline-flex items-center gap-2.5 text-sm font-medium text-gray-200"><span class="w-5 h-5 rounded flex items-center justify-center text-[10px] font-bold leading-none" style="background:#3178c6;color:#fff">TS</span>TypeScript</span>              <span class="inline-flex items-center gap-2.5 text-sm font-medium text-gray-200"><i class="fa-brands fa-node-js w-5 text-center text-lg" style="color:#68a063"></i>Node.js</span>              <span class="inline-flex items-center gap-2.5 text-sm font-medium text-gray-200"><svg viewBox="0 0 24 24" class="w-5 h-5" fill="#38bdf8" aria-hidden="true"><path d="M12.001 4.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C13.666 10.618 15.027 12 18.001 12c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C16.337 6.182 14.976 4.8 12.001 4.8zm-6 7.2c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624 1.177 1.194 2.538 2.576 5.512 2.576 3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C10.337 13.382 8.976 12 6.001 12z"/></svg>Tailwind CSS</span>
             </div>
           </div>
-
-          <div class="glass-panel p-6 rounded-2xl border border-gray-800">
-            <div class="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 mb-4">
-              <i class="fa-solid fa-database text-lg"></i>
+          <div class="grid grid-cols-1 md:grid-cols-[17rem_1fr] gap-x-8 gap-y-4 items-center py-7 border-t border-gray-800">
+            <div class="flex items-center gap-4">
+              <span class="text-xs font-mono text-brand-500/80 w-5">03</span>
+              <h4 class="text-base font-semibold text-white">Databases</h4>
             </div>
-            <h4 class="text-lg font-bold text-white mb-3">Databases</h4>
-            <div class="flex flex-wrap gap-2">
-              <span class="px-2.5 py-1 rounded-md bg-dark-800 text-xs font-mono text-gray-300 border border-gray-700">MySQL</span>
-              <span class="px-2.5 py-1 rounded-md bg-dark-800 text-xs font-mono text-gray-300 border border-gray-700">PostgreSQL</span>
-              <span class="px-2.5 py-1 rounded-md bg-dark-800 text-xs font-mono text-gray-300 border border-gray-700">MongoDB</span>
+            <div class="flex flex-wrap items-center gap-x-9 gap-y-4">
+              
+<span class="inline-flex items-center gap-2.5 text-sm font-medium text-gray-200"><i class="fa-solid fa-database w-5 text-center text-lg" style="color:#4479a1"></i>MySQL</span>              <span class="inline-flex items-center gap-2.5 text-sm font-medium text-gray-200"><i class="fa-solid fa-leaf w-5 text-center text-lg" style="color:#47a248"></i>MongoDB</span>
             </div>
           </div>
-
-          <div class="glass-panel p-6 rounded-2xl border border-gray-800">
-            <div class="w-10 h-10 rounded-xl bg-purple-500/10 flex items-center justify-center text-purple-400 mb-4">
-              <i class="fa-solid fa-screwdriver-wrench text-lg"></i>
+          <div class="grid grid-cols-1 md:grid-cols-[17rem_1fr] gap-x-8 gap-y-4 items-center py-7 border-t border-gray-800">
+            <div class="flex items-center gap-4">
+              <span class="text-xs font-mono text-brand-500/80 w-5">04</span>
+              <h4 class="text-base font-semibold text-white">Tools & Soft Skills</h4>
             </div>
-            <h4 class="text-lg font-bold text-white mb-3">Tools & Soft Skills</h4>
-            <div class="flex flex-wrap gap-2">
-              <span class="px-2.5 py-1 rounded-md bg-dark-800 text-xs font-mono text-gray-300 border border-gray-700">Git/GitHub</span>
-              <span class="px-2.5 py-1 rounded-md bg-dark-800 text-xs font-mono text-gray-300 border border-gray-700">Agile/Scrum</span>
-              <span class="px-2.5 py-1 rounded-md bg-dark-800 text-xs font-mono text-gray-300 border border-gray-700">Problem Solving</span>
-              <span class="px-2.5 py-1 rounded-md bg-dark-800 text-xs font-mono text-gray-300 border border-gray-700">Teamwork</span>
+            <div class="flex flex-wrap items-center gap-x-9 gap-y-4">
+              
+<span class="inline-flex items-center gap-2.5 text-sm font-medium text-gray-200"><i class="fa-brands fa-github w-5 text-center text-lg" style="color:#ffffff"></i>Git/GitHub</span>              <span class="inline-flex items-center gap-2.5 text-sm font-medium text-gray-200"><i class="fa-solid fa-arrows-rotate w-5 text-center text-lg" style="color:#38bdf8"></i>Agile/Scrum</span>              <span class="inline-flex items-center gap-2.5 text-sm font-medium text-gray-200"><i class="fa-solid fa-lightbulb w-5 text-center text-lg" style="color:#fbbf24"></i>Problem Solving</span>              <span class="inline-flex items-center gap-2.5 text-sm font-medium text-gray-200"><i class="fa-solid fa-people-group w-5 text-center text-lg" style="color:#4ade80"></i>Teamwork</span>
             </div>
           </div>
-
         </div>
       </section>
 
@@ -922,6 +944,81 @@
     }
 
     document.addEventListener("DOMContentLoaded", typeEffect);
+
+    // ===== Intro gate: draw an "L" to enter =====
+    (function () {
+      const gate = document.getElementById('introGate');
+      const cv = document.getElementById('igCanvas');
+      const msg = document.getElementById('igMsg');
+      const ctx = cv.getContext('2d');
+      let pts = [], drawing = false, done = false, clearTimer = null;
+
+      function resize() {
+        const r = window.devicePixelRatio || 1;
+        cv.width = innerWidth * r; cv.height = innerHeight * r;
+        ctx.setTransform(r, 0, 0, r, 0, 0);
+        ctx.lineWidth = 10; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+        ctx.strokeStyle = '#4ade80'; ctx.shadowColor = 'rgba(74,222,128,.6)'; ctx.shadowBlur = 14;
+      }
+      function clearCanvas() { ctx.clearRect(0, 0, innerWidth, innerHeight); pts = []; }
+
+      function isL(p) {
+        if (p.length < 8) return false;
+        const xs = p.map(a => a.x), ys = p.map(a => a.y);
+        const minX = Math.min(...xs), maxX = Math.max(...xs), minY = Math.min(...ys), maxY = Math.max(...ys);
+        const w = maxX - minX, h = maxY - minY;
+        if (h < Math.min(innerHeight * 0.2, 150) || w < h * 0.25 || w > h * 1.5) return false;
+        const left = p.filter(a => a.x - minX < w * 0.3);
+        const lys = left.map(a => a.y);
+        if ((Math.max(...lys) - Math.min(...lys)) / h < 0.7) return false;          // tall vertical stroke on the left
+        const base = p.filter(a => maxY - a.y < h * 0.25);
+        const bxs = base.map(a => a.x);
+        if ((Math.max(...bxs) - Math.min(...bxs)) / w < 0.6) return false;          // foot along the bottom
+        const stray = p.filter(a => a.x - minX > w * 0.55 && a.y - minY < h * 0.55).length;
+        return stray / p.length <= 0.04;                                           // nothing in the top-right
+      }
+
+      function enter() {
+        if (done) return; done = true;
+        gate.classList.add('ig-out');
+        document.body.style.overflow = '';
+        setTimeout(() => gate.remove(), 700);
+      }
+      function fail() {
+        msg.innerHTML = 'Not quite. Draw a big <b>L</b>: down, then right';
+        gate.classList.add('ig-shake');
+        clearTimer = setTimeout(() => { gate.classList.remove('ig-shake'); clearCanvas(); msg.innerHTML = 'Draw an <b>L</b> to enter'; }, 900);
+      }
+      function add(x, y) {
+        const last = pts[pts.length - 1];
+        if (last) {
+          const d = Math.hypot(x - last.x, y - last.y);
+          for (let i = 1; i < d / 8; i++) pts.push({ x: last.x + (x - last.x) * i * 8 / d, y: last.y + (y - last.y) * i * 8 / d });
+          ctx.beginPath(); ctx.moveTo(last.x, last.y); ctx.lineTo(x, y); ctx.stroke();
+        }
+        pts.push({ x, y });
+      }
+
+      cv.addEventListener('pointerdown', e => {
+        if (done) return; clearTimeout(clearTimer); gate.classList.remove('ig-shake');
+        if (!drawing && pts.length === 0) msg.innerHTML = 'Draw an <b>L</b> to enter';
+        drawing = true; cv.setPointerCapture(e.pointerId);
+        const last = pts.length; if (last) pts.push({ x: e.clientX, y: e.clientY }); else add(e.clientX, e.clientY);
+      });
+      cv.addEventListener('pointermove', e => { if (drawing) add(e.clientX, e.clientY); });
+      const end = () => {
+        if (!drawing) return; drawing = false;
+        clearTimeout(clearTimer);
+        clearTimer = setTimeout(() => { isL(pts) ? enter() : fail(); }, 450); // allows an L drawn in two strokes
+      };
+      cv.addEventListener('pointerup', end); cv.addEventListener('pointercancel', end);
+
+      document.getElementById('igSkip').addEventListener('click', enter);
+      document.addEventListener('keydown', e => { if (e.key === 'Enter' && !done) enter(); });
+
+      document.body.style.overflow = 'hidden';
+      addEventListener('resize', resize); resize();
+    })();
   </script>
 
   <!-- LorenzBot: portfolio chatbot (keep chatbot.js in the same folder as this file) -->

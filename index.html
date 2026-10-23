@@ -618,41 +618,23 @@
 
       <!-- CERTIFICATIONS SECTION -->
       <section id="certifications" class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div class="mb-12">
+        <div class="mb-10">
           <h2 class="text-xs font-mono font-bold tracking-widest text-brand-500 uppercase mb-2">Verified Credentials</h2>
           <h3 class="text-3xl font-bold text-white">Certifications & Training</h3>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div class="glass-panel p-6 sm:p-8 rounded-2xl border border-gray-800 flex items-start space-x-5">
-            <div class="w-14 h-14 rounded-2xl bg-brand-500/10 border border-brand-500/20 flex items-center justify-center shrink-0 text-brand-400 text-2xl">
-              <i class="fa-solid fa-certificate"></i>
-            </div>
-            <div class="space-y-2">
-              <div class="flex items-center space-x-2">
-                <span class="px-2.5 py-0.5 rounded-md bg-brand-500/10 text-brand-400 text-xs font-mono">Cisco Networking Academy</span>
-                <span class="text-xs font-mono text-gray-400">September 2026</span>
-              </div>
-              <h4 class="text-xl font-bold text-white">HTML Essentials</h4>
-              <p class="text-gray-400 text-sm">Demonstrated proficiency in semantic document structure, accessibility standards, and modern web layouts.</p>
-            </div>
-          </div>
-
-          <div class="glass-panel p-6 sm:p-8 rounded-2xl border border-gray-800 flex items-start space-x-5">
-            <div class="w-14 h-14 rounded-2xl bg-brand-accent/10 border border-brand-accent/20 flex items-center justify-center shrink-0 text-brand-accent text-2xl">
-              <i class="fa-solid fa-award"></i>
-            </div>
-            <div class="space-y-2">
-              <div class="flex items-center space-x-2">
-                <span class="px-2.5 py-0.5 rounded-md bg-brand-accent/10 text-brand-accent text-xs font-mono">Cisco Networking Academy</span>
-                <span class="text-xs font-mono text-gray-400">September 2026</span>
-              </div>
-              <h4 class="text-xl font-bold text-white">CSS Essentials</h4>
-              <p class="text-gray-400 text-sm">Verified skills in layout systems (Flexbox & Grid), visual styling, and responsive design principles.</p>
-            </div>
-          </div>
-        </div>
+        <div id="certFilters" class="flex flex-wrap gap-3 mb-10" role="toolbar" aria-label="Filter certificates"></div>
+        <div id="certGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch"></div>
       </section>
+
+      <!-- Certificate lightbox -->
+      <div id="certLightbox" class="hidden fixed inset-0 z-[90] bg-black/85 backdrop-blur-sm flex items-center justify-center p-4" role="dialog" aria-label="Certificate preview">
+        <div class="relative max-w-5xl w-full max-h-full flex flex-col items-center gap-3">
+          <button type="button" data-close class="absolute -top-2 right-0 sm:-right-2 w-9 h-9 rounded-lg bg-gray-800 hover:bg-gray-700 text-gray-300 hover:text-white flex items-center justify-center" aria-label="Close preview"><i class="fa-solid fa-xmark text-lg"></i></button>
+          <img id="certLbImg" alt="" class="max-h-[80vh] max-w-full rounded-lg bg-white object-contain mt-8">
+          <p id="certLbCap" class="text-sm font-mono text-gray-300"></p>
+        </div>
+      </div>
 
       <!-- EXPERIENCE & LEADERSHIP SECTION -->
       <section id="experience" class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
@@ -1018,6 +1000,79 @@
 
       document.body.style.overflow = 'hidden';
       addEventListener('resize', resize); resize();
+    })();
+
+    // ===== Certifications gallery =====
+    (function () {
+      // Edit this list. "file" = image file name WITHOUT extension (a list of possible names also works). Add issuer/date/id when you have them.
+      const CERTS = [
+        { title: 'HTML Essentials', cat: 'Professional Certifications', issuer: 'Cisco Networking Academy', date: 'September 2026',
+          file: ['HTML Essentials', 'HTML_Essentials', 'HTML Essentials Certificate', 'HTML_Essentials_certificate_lorenz_allen_biscocho-dlsl-edu-ph_bd03a6d7-bdb7-4e5b-9bca-6664cf1b151f (1)'] },
+        { title: 'CSS Essentials', cat: 'Professional Certifications', issuer: 'Cisco Networking Academy', date: 'September 2026',
+          file: ['CSS Essentials', 'CSS_Essentials', 'CSS Essentials Certificate', 'CSS_Essentials_certificate_lorenz_allen_biscocho-dlsl-edu-ph_3bc773f7-ccb0-4865-854f-6c1293b7b9b6'] },
+        { title: 'AI Fundamentals', cat: 'Course Completions', issuer: '', date: '', file: 'AI Fundamentals' },
+        { title: 'DevRoutes', cat: 'Course Completions', issuer: '', date: '', file: 'DevRoutes' },
+        { title: 'Hack Proof Your World: Cybersecurity', cat: 'Course Completions', issuer: '', date: '', file: 'Hack Proof Your World CyverSecurity' },
+        { title: 'Launching Your IT Career', cat: 'Course Completions', issuer: '', date: '', file: 'Launching Your IT Career' },
+        { title: 'The Basics of Software Quality', cat: 'Course Completions', issuer: '', date: '', file: 'The Basics of Software Quality' },
+        { title: 'Skills to Succeed', cat: 'Course Completions', issuer: '', date: '', file: 'Skills to Suceed' }
+      ];
+      const ORDER = ['Professional Certifications', 'Course Completions', 'Workshops & Training', 'Webinars & Orientations'];
+      const DIRS = ['certificates/', ''], EXTS = ['png', 'jpg', 'jpeg', 'webp'];
+
+      const grid = document.getElementById('certGrid'), bar = document.getElementById('certFilters');
+      const lb = document.getElementById('certLightbox'), lbImg = document.getElementById('certLbImg'), lbCap = document.getElementById('certLbCap');
+      const esc = s => s.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+      const row = (k, v) => v ? `<div class="flex justify-between gap-4 py-2.5 border-t border-dashed border-gray-700/70 text-sm"><span class="text-gray-400">${k}</span><span class="font-semibold text-white text-right">${esc(v)}</span></div>` : '';
+
+      CERTS.forEach((c, i) => {
+        const card = document.createElement('article');
+        card.dataset.cat = c.cat;
+        card.className = 'glass-panel rounded-2xl border border-gray-800 overflow-hidden flex flex-col hover:border-brand-500/40 transition-colors';
+        card.innerHTML = `
+          <button type="button" class="block p-4 bg-brand-500/5 border-b border-gray-800 text-left cursor-zoom-in" aria-label="View ${esc(c.title)} certificate">
+            <div class="aspect-[4/3] rounded-lg bg-white overflow-hidden flex items-center justify-center">
+              <img alt="${esc(c.title)} certificate" class="w-full h-full object-contain" loading="lazy">
+            </div>
+          </button>
+          <div class="p-5 flex flex-col flex-grow">
+            <h4 class="text-lg font-bold text-white">${esc(c.title)}</h4>
+            <p class="text-xs font-semibold tracking-wider text-brand-400 uppercase mt-1 mb-4">${esc(c.cat.replace(/s$/, ''))}</p>
+            <div class="mb-5">${row('Issuer', c.issuer)}${row('Date', c.date)}${row('Credential ID', c.id)}</div>
+            <button type="button" class="mt-auto self-start px-5 py-2 rounded-full border border-brand-500/50 text-brand-400 text-xs font-semibold hover:bg-brand-500 hover:text-dark-900 transition-all">View Credential</button>
+          </div>`;
+        const img = card.querySelector('img');
+        let n = 0;
+        const cands = [].concat(c.file).flatMap(f => DIRS.flatMap(d => EXTS.map(e => encodeURI(d + f + '.' + e))));
+        img.onerror = () => {
+          if (++n < cands.length) { img.src = cands[n]; return; }
+          img.parentElement.innerHTML = '<div class="text-center text-gray-400 p-4"><i class="fa-solid fa-award text-4xl text-brand-500/60 mb-2"></i><p class="text-xs font-mono">Add certificate image</p></div>';
+          img.dataset.missing = '1';
+        };
+        img.src = cands[0];
+        const open = () => { if (!card.querySelector('img')) return; lbImg.src = img.currentSrc || img.src; lbCap.textContent = c.title; lb.classList.remove('hidden'); document.body.style.overflow = 'hidden'; };
+        card.querySelectorAll('button').forEach(b => b.addEventListener('click', open));
+        grid.appendChild(card);
+      });
+
+      // Filter pills
+      const cats = ORDER.filter(k => CERTS.some(c => c.cat === k));
+      const pill = (label, on) => `<button type="button" data-f="${esc(label)}" class="px-5 py-2.5 rounded-full border text-sm font-semibold transition-all ${on ? 'bg-brand-500 border-brand-500 text-dark-900' : 'border-gray-700 text-gray-300 hover:border-brand-500/60 hover:text-brand-400'}">${esc(label)}</button>`;
+      bar.innerHTML = pill('All', true) + cats.map(k => pill(k, false)).join('');
+      bar.addEventListener('click', e => {
+        const b = e.target.closest('button[data-f]'); if (!b) return;
+        const f = b.dataset.f;
+        bar.querySelectorAll('button').forEach(x => {
+          const on = x === b;
+          x.className = `px-5 py-2.5 rounded-full border text-sm font-semibold transition-all ${on ? 'bg-brand-500 border-brand-500 text-dark-900' : 'border-gray-700 text-gray-300 hover:border-brand-500/60 hover:text-brand-400'}`;
+        });
+        grid.querySelectorAll('article').forEach(a => a.classList.toggle('hidden', f !== 'All' && a.dataset.cat !== f));
+      });
+
+      // Lightbox
+      const close = () => { lb.classList.add('hidden'); lbImg.src = ''; document.body.style.overflow = ''; };
+      lb.addEventListener('click', e => { if (e.target === lb || e.target.closest('[data-close]')) close(); });
+      document.addEventListener('keydown', e => { if (e.key === 'Escape' && !lb.classList.contains('hidden')) close(); });
     })();
   </script>
 
